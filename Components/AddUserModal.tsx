@@ -88,7 +88,7 @@ export default function AddUserModal(props: propsType) {
   if (isBrowser) {
     return ReactDOM.createPortal(
       modalContent,
-      document.getElementById('modal-root')
+      document.getElementById('modal-root')!
     );
   } else {
     return null;
