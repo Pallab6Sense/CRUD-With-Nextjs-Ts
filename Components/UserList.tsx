@@ -3,7 +3,7 @@ import axios from 'axios';
 import UpdateModal from './UpdateModal';
 
 export default function EmployeeList() {
-  const [user, setUser] = useState(null);
+  const [user, setUser] = useState<any[]>([]);
   const [modal, setModal] = useState(false);
   const [isChecked, setIsChecked] = useState<number[]>([]);
 
