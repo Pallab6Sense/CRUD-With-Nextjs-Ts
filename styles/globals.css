@@ -37,15 +37,12 @@
   background: #34d958;
   padding: 10px 20px 10px 20px;
   text-decoration: none;
+  margin: 20px;
 }
 
 .addBtn:hover {
   background: #7dd968;
   text-decoration: none;
-}
-
-.addBtn:active{
-  
 }
 
 .dltBtn {
@@ -58,6 +55,9 @@
   background: #fc0000;
   padding: 10px 20px 10px 20px;
   text-decoration: none;
+  margin: 20px;
+  width: fit-content;
+
 }
 
 .dltBtn:hover {
@@ -65,8 +65,6 @@
   text-decoration: none;
 
 }
-
-
 
 .modal {
   z-index: 1000;
@@ -86,14 +84,14 @@
 }
 
 .add-user-modal{
-  z-index: 2000;
+  z-index: 1000;
   background: white;
   /* border: solid gray 1px; */
-  position: fixed;
-  top: 150px;
-  left: 700px;
+  position: absolute;
+  top: 330px;
+  left: 600px;
   /* margin-left: 20px; */
-  padding: 20px;
+  padding: 10px;
   width: fit-content;
   display: flex;
   justify-content: center;
@@ -114,26 +112,24 @@
 } */
 
 .update-user-modal{
-  z-index: 1000;
+  /* z-index: 1000;
   background: white;
-  /* border: solid gray 1px; */
   position: absolute;
-  top: 130px;
-  /* margin-left: 20px; */
+  top: 150px;
+  left: 700px;
   padding: 20px;
   width: fit-content;
   display: flex;
   justify-content: center;
   border-radius: 10px;
-  /* height: 200px; */
   height: fit-content;
-  box-shadow: rgba(60, 64, 67, 0.3) 0px 1px 2px 0px, rgba(60, 64, 67, 0.15) 0px 1px 3px 1px;
+  box-shadow: rgba(60, 64, 67, 0.3) 0px 1px 2px 0px, rgba(60, 64, 67, 0.15) 0px 1px 3px 1px; */
 }
 
 .form {
   display: flex;
   justify-content: center;
-  padding: 20px;
+  padding: 10px;
 }
 
 input[type=text] {
@@ -177,8 +173,8 @@ input[type=text] {
   padding: 20px;
   border-radius: 10px;
   margin: 20px;
-  margin-top: 70px;
-  width: fit-content;
+  margin-top: 15px;
+  /* width: fit-content; */
   text-align: center;
   z-index: 0;
 }
@@ -190,6 +186,7 @@ input[type=text] {
   padding-top: 10px;
   align-content: center;
   align-items: center;
+  z-index: 0;
 
 }
 

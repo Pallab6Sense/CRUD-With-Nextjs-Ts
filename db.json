@@ -1,46 +1,10 @@
 {
   "user": [
     {
-      "id": 1,
       "Name": "Pallab Majumdar",
-      "Address": "Dhaka",
-      "Phone": "01984101170"
-    },
-    {
-      "Name": "pppp",
-      "Address": "dhfd",
-      "Phone": "dhhdfh",
-      "id": 2
-    },
-    {
-      "Name": "Joy Adhikary",
-      "Address": "Faridpur",
-      "Phone": "013758936893",
-      "id": 3
-    },
-    {
-      "Name": "Mahfuja Akter Mitu",
-      "Address": "SirajGanj",
-      "Phone": "976993",
-      "id": 4
-    },
-    {
-      "Name": "dg",
-      "Address": "dhxh",
-      "Phone": "hxh",
-      "id": 5
-    },
-    {
-      "Name": "kjsjkv",
-      "Address": "fjvd",
-      "Phone": "dhj",
-      "id": 6
-    },
-    {
-      "Name": "hjgfjdgj",
-      "Address": "dh",
-      "Phone": "hd",
-      "id": 7
+      "Address": "Dhaka,Mirpur",
+      "Phone": "01984101170",
+      "id": 1
     }
   ]
 }

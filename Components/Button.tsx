@@ -21,7 +21,6 @@ export default function Button() {
             Add User
           </button>
           <div>
-            <button className="dltBtn">Delete User</button>
             <AddUserModal open={modal} setmodal={setModal} />
             {/* <UserList open={userList}></UserList> */}
           </div>

@@ -1,18 +1,11 @@
-import { useEffect, useState } from 'react';
+import { useCallback, useEffect, useState } from 'react';
 import axios from 'axios';
 import UpdateModal from './UpdateModal';
 
-
-
 export default function EmployeeList() {
-  
   const [user, setUser] = useState(null);
   const [modal, setModal] = useState(false);
-  const [isUpdate, setIsUpdate] = useState(false);
-
-  const [name, setName] = useState('');
-  const [address, setAddress] = useState('');
-  const [phone, setPhone] = useState('');
+  const [isChecked, setIsChecked] = useState<number[]>([]);
 
   useEffect(() => {
     axios
@@ -26,12 +19,37 @@ export default function EmployeeList() {
       });
   }, []);
 
-  const handleSubmit = (): void => {};
+  const handleCheckBox = useCallback(
+    (e: any): void => {
+      const { value, checked } = e.target;
+      console.log(value);
+      if (checked) {
+        setIsChecked([...isChecked, value]);
+      } else {
+        setIsChecked(isChecked.filter((e) => e !== value));
+      }
+    },
+    [isChecked]
+  );
+
+  const handleDelete = useCallback(() => {
+    if (window.confirm('Are you sure you want to delete?')) {
+      isChecked.forEach((id) => {
+        axios.delete(`http://localhost:8000/user/${id}`).then((res) => {
+          alert('Removed Successfully');
+          window.location.reload();
+        });
+      });
+    }
+  }, [isChecked]);
 
   return (
     <>
       <div className="container">
         <div className="user-list">
+          <button className="dltBtn" onClick={handleDelete}>
+            Delete User
+          </button>
           {user &&
             user.map(
               (items: {
@@ -39,28 +57,31 @@ export default function EmployeeList() {
                 Name: string;
                 Address: string;
                 Phone: string;
+                isChecked: any;
               }) => {
                 const { id, Name, Address, Phone } = items;
                 return (
-                  <div className="list-item" key={id}>
-                    <input
-                      type="radio"
-                      id="item"
-                      name="user List"
-                      value=""
-                    ></input>
-                    <p>Name : {Name}</p>
-                    <p>Address : {Address}</p>
-                    <p>Phone : {Phone}</p>
-                    <button
-                      className="editBtn"
-                      onClick={() => {
-                        setModal(!modal);
-                        setIsUpdate(true);
-                      }}
-                    >
-                      Edit
-                    </button>
+                  <>
+                    <div className="list-item" key={id}>
+                      <input
+                        type="checkbox"
+                        value={id}
+                        checked={items.isChecked}
+                        onChange={(e) => handleCheckBox(e)}
+                      ></input>
+                      <p>Name : {Name}</p>
+                      <p>Address : {Address}</p>
+                      <p>Phone : {Phone}</p>
+                      <button
+                        className="editBtn"
+                        onClick={() => {
+                          setModal(!modal);
+                          // setIsUpdate(true);
+                        }}
+                      >
+                        Edit
+                      </button>
+                    </div>
                     <UpdateModal
                       open={modal}
                       setmodal={setModal}
@@ -69,7 +90,7 @@ export default function EmployeeList() {
                       userAddress={Address}
                       userPhone={Phone}
                     />
-                  </div>
+                  </>
                 );
               }
             )}
