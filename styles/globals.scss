@@ -1,6 +1,6 @@
-$font-size:16px;
-$btnGreen:#34d958;
-$btnRed:#fc0000;
+$font-size: 16px;
+$btnGreen: #34d958;
+$btnRed: #fc0000;
 
 * {
   box-sizing: border-box;
@@ -18,11 +18,9 @@ $btnRed:#fc0000;
 
 .btnContainer {
   display: flex;
-  /* width: 100%; */
   justify-content: center;
   padding-top: 30px;
   z-index: 0;
-
 }
 
 .btnDiv {
@@ -42,6 +40,7 @@ $btnRed:#fc0000;
   padding: 10px 20px 10px 20px;
   text-decoration: none;
   margin: 20px;
+  cursor: pointer;
 }
 
 .addBtn:hover {
@@ -61,82 +60,64 @@ $btnRed:#fc0000;
   text-decoration: none;
   margin: 20px;
   width: fit-content;
-
+  cursor: pointer;
 }
 
 .dltBtn:hover {
   background: #f74d4d;
   text-decoration: none;
-
 }
 
 .modal {
   z-index: 1000;
   background: white;
-  /* border: solid gray 1px; */
   position: absolute;
   top: 130px;
-  /* margin-left: 20px; */
   padding: 20px;
   width: fit-content;
   display: flex;
   justify-content: center;
   border-radius: 10px;
-  /* height: 200px; */
   height: fit-content;
-  box-shadow: rgba(60, 64, 67, 0.3) 0px 1px 2px 0px, rgba(60, 64, 67, 0.15) 0px 1px 3px 1px;
+  box-shadow: rgba(60, 64, 67, 0.3) 0px 1px 2px 0px,
+    rgba(60, 64, 67, 0.15) 0px 1px 3px 1px;
 }
 
-.add-user-modal{
+.add-user-modal {
   z-index: 1000;
   background: white;
-  /* border: solid gray 1px; */
-  position: absolute;
-  top: 330px;
-  left: 600px;
-  /* margin-left: 20px; */
-  padding: 10px;
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
   width: fit-content;
   display: flex;
   justify-content: center;
+  padding: 30px;
   border-radius: 10px;
-  /* height: 200px; */
   height: fit-content;
-  box-shadow: rgba(60, 64, 67, 0.3) 0px 1px 2px 0px, rgba(60, 64, 67, 0.15) 0px 1px 3px 1px;
+  box-shadow: rgba(60, 64, 67, 0.3) 0px 1px 2px 0px,
+    rgba(60, 64, 67, 0.15) 0px 1px 3px 1px;
+  // color: ;
 }
 
-/* .overlay{
+.overlay {
   position: fixed;
-  z-index: 2000;
-  background-color: rgba(0,0,0,0.7);
+  z-index: 1000;
+  background-color: rgba(0, 0, 0, 0.8);
   top: 0;
   bottom: 0;
   left: 0;
   right: 0;
-} */
-
-.update-user-modal{
-  /* z-index: 1000;
-  background: white;
-  position: absolute;
-  top: 150px;
-  left: 700px;
-  padding: 20px;
-  width: fit-content;
-  display: flex;
-  justify-content: center;
-  border-radius: 10px;
-  height: fit-content;
-  box-shadow: rgba(60, 64, 67, 0.3) 0px 1px 2px 0px, rgba(60, 64, 67, 0.15) 0px 1px 3px 1px; */
 }
 
 .form {
   display: flex;
   justify-content: center;
-  padding: 10px; 
+  padding: 10px;
 }
 
-input[type=text] {
+input[type='text'] {
   width: 100%;
   padding: 12px 20px;
   margin: 8px 0;
@@ -172,13 +153,12 @@ input[type=text] {
   display: flex;
   justify-content: center;
   flex-direction: column;
-  box-shadow: rgba(60, 64, 67, 0.3) 0px 1px 2px 0px, rgba(60, 64, 67, 0.15) 0px 1px 3px 1px;
-  /* width: fit-content; */
+  box-shadow: rgba(60, 64, 67, 0.3) 0px 1px 2px 0px,
+    rgba(60, 64, 67, 0.15) 0px 1px 3px 1px;
   padding: 20px;
   border-radius: 10px;
   margin: 20px;
   margin-top: 15px;
-  /* width: fit-content; */
   text-align: center;
   z-index: 0;
 }
@@ -186,12 +166,10 @@ input[type=text] {
 .list-item {
   display: flex;
   justify-content: center;
-  /* flex-direction: column; */
   padding-top: 10px;
   align-content: center;
   align-items: center;
   z-index: 0;
-
 }
 
 .list-item p {
