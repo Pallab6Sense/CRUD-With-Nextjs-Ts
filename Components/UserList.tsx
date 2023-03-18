@@ -33,11 +33,10 @@ export default function EmployeeList() {
   const handleDelete = useCallback(() => {
     if (window.confirm('Are you sure you want to delete?')) {
       isChecked.forEach((id) => {
-        axios.delete(`http://localhost:8000/user/${id}`).then((res) => {
-          alert('Removed Successfully');
-          window.location.reload();
-        });
+        axios.delete(`http://localhost:8000/user/${id}`).then((res) => {});
       });
+      alert('Removed Successfully');
+      window.location.reload();
     }
   }, [isChecked]);
 
