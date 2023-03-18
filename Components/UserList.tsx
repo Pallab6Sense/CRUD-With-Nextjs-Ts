@@ -12,7 +12,6 @@ export default function EmployeeList() {
       .get('http://localhost:8000/user')
       .then((res) => {
         setUser(res.data);
-        console.log(res.data);
       })
       .catch((err) => {
         console.log(err.message);
@@ -22,7 +21,6 @@ export default function EmployeeList() {
   const handleCheckBox = useCallback(
     (e: any): void => {
       const { value, checked } = e.target;
-      console.log(value);
       if (checked) {
         setIsChecked([...isChecked, value]);
       } else {

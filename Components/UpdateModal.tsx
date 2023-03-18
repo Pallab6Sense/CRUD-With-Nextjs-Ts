@@ -13,7 +13,6 @@ interface propsType {
 export default function UpdateModal(props: propsType) {
   const { open, setmodal, id, userName, userAddress, userPhone } = props;
 
-  console.log(id);
 
   const [name, setName] = useState(userName);
   const [address, setAddress] = useState(userAddress);
@@ -28,7 +27,6 @@ export default function UpdateModal(props: propsType) {
       })
       .then((response) => {
         alert('Data Updated Successfully');
-        console.log(response);
       });
   };
 

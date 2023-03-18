@@ -20,7 +20,6 @@ export default function AddUserModal(props: propsType) {
       })
       .then((response) => {
         alert('Data Saved Successfully');
-        console.log(response.data);
       });
   };
   const [isBrowser, setIsBrowser] = useState(false);
