@@ -1,6 +1,7 @@
 import { useCallback, useEffect, useState } from 'react';
 import axios from 'axios';
 import UpdateModal from './UpdateModal';
+import UserDelete from './UserDelete';
 
 export default function EmployeeList() {
   const [user, setUser] = useState<any[]>([]);
@@ -21,32 +22,18 @@ export default function EmployeeList() {
   const handleCheckBox = useCallback(
     (e: any): void => {
       const { value, checked } = e.target;
-      if (checked) {
-        setIsChecked([...isChecked, value]);
-      } else {
-        setIsChecked(isChecked.filter((e) => e !== value));
-      }
+      checked
+        ? setIsChecked([...isChecked, value])
+        : setIsChecked(isChecked.filter((e) => e !== value));
     },
     [isChecked]
   );
-
-  const handleDelete = useCallback(() => {
-    if (window.confirm('Are you sure you want to delete?')) {
-      isChecked.forEach((id) => {
-        axios.delete(`http://localhost:8000/user/${id}`).then((res) => {});
-      });
-      alert('Removed Successfully');
-      window.location.reload();
-    }
-  }, [isChecked]);
 
   return (
     <>
       <div className="container">
         <div className="user-list">
-          <button className="dltBtn" onClick={handleDelete}>
-            Delete User
-          </button>
+          <UserDelete isChecked={isChecked}></UserDelete>
           {user &&
             user.map(
               (items: {
@@ -65,7 +52,7 @@ export default function EmployeeList() {
                         value={id}
                         checked={items.isChecked}
                         onChange={(e) => handleCheckBox(e)}
-                      ></input>
+                      />
                       <p>Name : {Name}</p>
                       <p>Address : {Address}</p>
                       <p>Phone : {Phone}</p>
@@ -73,7 +60,6 @@ export default function EmployeeList() {
                         className="editBtn"
                         onClick={() => {
                           setModal(!modal);
-                          // setIsUpdate(true);
                         }}
                       >
                         Edit
