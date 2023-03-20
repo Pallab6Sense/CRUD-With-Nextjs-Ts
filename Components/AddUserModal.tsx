@@ -13,6 +13,7 @@ export default function AddUserModal(props: propsType) {
   const [phone, setPhone] = useState('');
 
   const handleSubmit = (e:any) => {
+    e.preventDefault();
     axios
       .post('http://localhost:8000/user', {
         Name: name,
@@ -34,7 +35,7 @@ export default function AddUserModal(props: propsType) {
       <div className="add-user-modal">
         
           <div className="form">
-            <form action="" onSubmit={handleSubmit}>
+            <form action="" onSubmit={handleSubmit} >
               <div className="">
                 <label className="">Name</label>
                 <input
@@ -69,7 +70,7 @@ export default function AddUserModal(props: propsType) {
                 />
               </div>
               <div className="">
-                <button className="submit" type="submit">
+                <button className="submit" type="submit" >
                   Add
                 </button>
               </div>

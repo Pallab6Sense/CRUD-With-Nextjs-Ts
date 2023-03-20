@@ -24,6 +24,7 @@ export default function UserDelete(props: propsTypes) {
             Delete User
           </button>
         )}
+        
       </div>
     </>
   );
