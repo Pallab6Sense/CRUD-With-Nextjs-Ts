@@ -1,10 +1,16 @@
 {
   "user": [
     {
-      "Name": "Pallab Majumdar",
-      "Address": "Dhaka,Mirpur",
+      "Name": "pallab",
+      "Address": "mirpur",
       "Phone": "01984101170",
       "id": 1
+    },
+    {
+      "Name": "sadman vai",
+      "Address": "khilgan",
+      "Phone": "8497359",
+      "id": 2
     }
   ]
 }

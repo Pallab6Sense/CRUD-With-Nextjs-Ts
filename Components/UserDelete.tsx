@@ -1,5 +1,5 @@
 import axios from 'axios';
-import { useCallback } from 'react';
+import { useCallback, useState } from 'react';
 
 interface propsTypes {
   isChecked: number[];
@@ -9,7 +9,7 @@ export default function UserDelete(props: propsTypes) {
 
   const handleDelete = useCallback(() => {
     if (window.confirm('Are you sure you want to delete?')) {
-      isChecked.forEach((id) => {
+      isChecked.map((id) => {
         axios.delete(`http://localhost:8000/user/${id}`);
       });
       alert('Removed Successfully');
@@ -19,9 +19,11 @@ export default function UserDelete(props: propsTypes) {
   return (
     <>
       <div className="dlt-container">
-        <button className="dltBtn" onClick={handleDelete}>
-          Delete User
-        </button>
+        {isChecked[0] && (
+          <button className="dltBtn" onClick={handleDelete}>
+            Delete User
+          </button>
+        )}
       </div>
     </>
   );

@@ -2,11 +2,13 @@ import { useCallback, useEffect, useState } from 'react';
 import axios from 'axios';
 import UpdateModal from './UpdateModal';
 import UserDelete from './UserDelete';
+import User from './User';
+import {itemsInterface } from './UserListInterface';
 
 export default function EmployeeList() {
-  const [user, setUser] = useState<any[]>([]);
-  const [modal, setModal] = useState(false);
+  const [user, setUser] = useState<[]>([]);
   const [isChecked, setIsChecked] = useState<number[]>([]);
+  // console.log('checkbox', isChecked);
 
   useEffect(() => {
     axios
@@ -19,61 +21,26 @@ export default function EmployeeList() {
       });
   }, []);
 
-  const handleCheckBox = useCallback(
-    (e: any): void => {
-      const { value, checked } = e.target;
-      checked
-        ? setIsChecked([...isChecked, value])
-        : setIsChecked(isChecked.filter((e) => e !== value));
-    },
-    [isChecked]
-  );
-
   return (
     <>
       <div className="container">
         <div className="user-list">
-          <UserDelete isChecked={isChecked}></UserDelete>
+          <UserDelete isChecked={isChecked} />
           {user &&
             user.map(
-              (items: {
-                id: number;
-                Name: string;
-                Address: string;
-                Phone: string;
-                isChecked: any;
-              }) => {
+              (items: itemsInterface) => {
                 const { id, Name, Address, Phone } = items;
                 return (
-                  <>
-                    <div className="list-item" key={id}>
-                      <input
-                        type="checkbox"
-                        value={id}
-                        checked={items.isChecked}
-                        onChange={(e) => handleCheckBox(e)}
-                      />
-                      <p>Name : {Name}</p>
-                      <p>Address : {Address}</p>
-                      <p>Phone : {Phone}</p>
-                      <button
-                        className="editBtn"
-                        onClick={() => {
-                          setModal(!modal);
-                        }}
-                      >
-                        Edit
-                      </button>
-                    </div>
-                    <UpdateModal
-                      open={modal}
-                      setmodal={setModal}
-                      id={id}
-                      userName={Name}
-                      userAddress={Address}
-                      userPhone={Phone}
-                    />
-                  </>
+                  <User
+                    key={id}
+                    id={id}
+                    Name={Name}
+                    Address={Address}
+                    Phone={Phone}
+                    items={items}
+                    isChecked={isChecked}
+                    setIsChecked={setIsChecked}
+                  />
                 );
               }
             )}

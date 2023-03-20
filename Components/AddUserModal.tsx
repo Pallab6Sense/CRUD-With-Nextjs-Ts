@@ -1,9 +1,10 @@
 import axios from 'axios';
 import { useEffect, useState } from 'react';
 import ReactDOM from 'react-dom';
+
 interface propsType {
   open: boolean;
-  setmodal: any;
+  setmodal: (open: boolean) => void;
 }
 export default function AddUserModal(props: propsType) {
   const { open, setmodal } = props;
@@ -11,7 +12,7 @@ export default function AddUserModal(props: propsType) {
   const [address, setAddress] = useState('');
   const [phone, setPhone] = useState('');
 
-  const handleSubmit = (e: any) => {
+  const handleSubmit = (e:any) => {
     axios
       .post('http://localhost:8000/user', {
         Name: name,
